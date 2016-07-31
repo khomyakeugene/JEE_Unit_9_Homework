@@ -40,6 +40,18 @@
                 <value>orm/CourseIngredient.hbm.xml</value>
             </list>
         </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect
+                hibernate.format_sql=true
+                hibernate.show_sql=false
+                hibernate.cache.use_second_level_cache=false
+                hibernate.cache.use_query_cache=false
+                hibernate.generate_statistics=false
+                org.hibernate.cache.ehcache.configurationResourceName=/ehcache.xml
+                hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory
+            </value>
+        </property>
     </bean>
 
     <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
@@ -101,12 +113,12 @@
     <bean class="com.company.restaurant.dao.hibernate.HIngredientDao" id="ingredientDao">
         <property name="sessionFactory" ref="sessionFactory"/>
         <property name="useCriteriaQuery" value="true"/>
-     </bean>
+    </bean>
 
     <bean class="com.company.restaurant.dao.hibernate.HPortionDao" id="portionDao">
         <property name="sessionFactory" ref="sessionFactory"/>
         <property name="useCriteriaQuery" value="true"/>
-     </bean>
+    </bean>
 
     <bean class="com.company.restaurant.dao.hibernate.HWarehouseDao" id="warehouseDao">
         <property name="sessionFactory" ref="sessionFactory"/>
