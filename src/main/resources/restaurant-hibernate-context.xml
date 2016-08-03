@@ -38,6 +38,7 @@
                 <value>orm/MeasuringType.hbm.xml</value>
                 <value>orm/PortionType.hbm.xml</value>
                 <value>orm/CourseIngredient.hbm.xml</value>
+                <value>orm/CommonDataDic.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
