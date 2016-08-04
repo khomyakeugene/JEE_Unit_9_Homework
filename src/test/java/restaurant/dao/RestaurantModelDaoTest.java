@@ -58,7 +58,7 @@ public abstract class RestaurantModelDaoTest {
     private static int lastTableId() {
         List<Table> tableList = tableDao.findAllTables();
 
-        return tableList.get(tableList.size()-1).getTableId();
+        return tableList.get(tableList.size() - 1).getTableId();
     }
 
 
@@ -320,7 +320,7 @@ public abstract class RestaurantModelDaoTest {
         orderDao.findAllOrders("B").forEach(System.out::println);
 
         if (employeeIsWaiter) {
-            waiter = (Waiter)employeeDao.findEmployeeById(employee.getEmployeeId());
+            waiter = (Waiter) employeeDao.findEmployeeById(employee.getEmployeeId());
             System.out.println(waiter);
 
             Set<Order> orders = waiter.getOrders();
@@ -401,12 +401,12 @@ public abstract class RestaurantModelDaoTest {
             assertTrue(portion.equals(portionDao.findPortionById(portion.getPortionId())));
         }
         System.out.println("ingredientDao test ... ");
-        for (Ingredient ingredient: ingredientDao.findAllIngredients()) {
+        for (Ingredient ingredient : ingredientDao.findAllIngredients()) {
             assertTrue(ingredient.equals(ingredientDao.findIngredientById(ingredient.getIngredientId())));
         }
 
         System.out.println("warehouseDao test ... ");
-        for (Ingredient ingredient: ingredientDao.findAllIngredients()) {
+        for (Ingredient ingredient : ingredientDao.findAllIngredients()) {
             // If there is some information about ingredient in the warehouse, this information is important
             // as a initial data in the system, and it is prohibited to modify this information
             List<Warehouse> warehouseList = warehouseDao.findIngredientInWarehouseById(ingredient.getIngredientId());
@@ -462,5 +462,10 @@ public abstract class RestaurantModelDaoTest {
 
         commonDataDao.delCommonData(commonDataName);
         assertTrue(commonDataDao.findCommonDataById(commonDataId) == null);
+    }
+
+    @Test(timeout = 2000)
+    public void saveCommonDataImages() throws Exception {
+
     }
 }
