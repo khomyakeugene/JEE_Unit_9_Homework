@@ -21,6 +21,8 @@ import static org.junit.Assert.assertTrue;
 public abstract class RestaurantModelDaoTest {
     private final static String DUPLICATE_KEY_VALUE_VIOLATES_MESSAGE = "duplicate key value violates";
     private final static String EMBLEM_FILENAME = "images/Hamster.png";
+    private final static String RESTAURANT_SCHEMA_FILENAME = "images/restaurant_schema.jpg";
+    private final static String TRANSPORT_MAP_FILENAME = "images/transport_map.jpg";
 
     private static JobPositionDao jobPositionDao;
     private static EmployeeDao employeeDao;
@@ -469,7 +471,15 @@ public abstract class RestaurantModelDaoTest {
     @Test
     public void saveCommonDataImages() throws Exception {
         // Emblem image
-        byte[] emblemImage = Util.readResourceFileToByteArray(EMBLEM_FILENAME);
-        commonDataDao.updCommonDataImage(CommonDataServiceImpl.EMBLEM_NAME, emblemImage);
+        commonDataDao.updCommonDataImage(CommonDataServiceImpl.EMBLEM_NAME,
+                Util.readResourceFileToByteArray(EMBLEM_FILENAME));
+
+        // Restaurant schema image
+        commonDataDao.updCommonDataImage(CommonDataServiceImpl.RESTAURANT_SCHEMA_NAME,
+                Util.readResourceFileToByteArray(RESTAURANT_SCHEMA_FILENAME));
+
+        // Transport map
+        commonDataDao.updCommonDataImage(CommonDataServiceImpl.TRANSPORT_MAP_NAME,
+                Util.readResourceFileToByteArray(TRANSPORT_MAP_FILENAME));
     }
 }

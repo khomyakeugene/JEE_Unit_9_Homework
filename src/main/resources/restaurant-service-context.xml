@@ -44,5 +44,8 @@
         <property name="cookedCourseDao" ref="cookedCourseDao"/>
         <property name="warehouseService" ref="warehouseService"/>
     </bean>
-    <!-- END OF DB-CONTEXT -->
+
+    <bean class="com.company.restaurant.service.impl.CommonDataServiceImpl" id="commonDataService">
+        <property name="commonDataDao" ref="commonDataDao"/>
+    </bean>
 </beans>
