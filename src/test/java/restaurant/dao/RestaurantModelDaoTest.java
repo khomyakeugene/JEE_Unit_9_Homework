@@ -2,6 +2,7 @@ package restaurant.dao;
 
 import com.company.restaurant.dao.*;
 import com.company.restaurant.model.*;
+import com.company.restaurant.service.impl.CommonDataServiceImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,6 +20,7 @@ import static org.junit.Assert.assertTrue;
  */
 public abstract class RestaurantModelDaoTest {
     private final static String DUPLICATE_KEY_VALUE_VIOLATES_MESSAGE = "duplicate key value violates";
+    private final static String EMBLEM_FILENAME = "images/Hamster.png";
 
     private static JobPositionDao jobPositionDao;
     private static EmployeeDao employeeDao;
@@ -464,8 +466,10 @@ public abstract class RestaurantModelDaoTest {
         assertTrue(commonDataDao.findCommonDataById(commonDataId) == null);
     }
 
-    @Test(timeout = 2000)
+    @Test
     public void saveCommonDataImages() throws Exception {
-
+        // Emblem image
+        byte[] emblemImage = Util.readResourceFileToByteArray(EMBLEM_FILENAME);
+        commonDataDao.updCommonDataImage(CommonDataServiceImpl.EMBLEM_NAME, emblemImage);
     }
 }
