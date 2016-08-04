@@ -8,9 +8,9 @@ import com.company.restaurant.service.impl.proto.Service;
  * Created by Yevhen on 04.08.2016.
  */
 public class CommonDataServiceImpl extends Service implements CommonDataService {
-    public static final String NAME_NAME = "name";
-    public static final String ADDRESS_NAME = "address";
-    public static final String E_MAIL_NAME = "e-mail";
+    private static final String NAME_NAME = "name";
+    private static final String ADDRESS_NAME = "address";
+    private static final String E_MAIL_NAME = "e-mail";
     public static final String EMBLEM_NAME = "emblem";
     public static final String TRANSPORT_MAP_NAME = "transport map";
     public static final String RESTAURANT_SCHEMA_NAME = "restaurant schema";
