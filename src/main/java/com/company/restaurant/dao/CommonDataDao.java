@@ -14,9 +14,13 @@ public interface CommonDataDao {
 
     CommonData addCommonData(String name, String value, byte[] image);
 
-    CommonData saveCommonDataImage(int commonDataId, byte[] image);
+    void updCommonDataValue(int commonDataId, String value);
 
-    CommonData saveCommonDataImage(String name, byte[] image);
+    void updCommonDataValue(String name, String value);
+
+    void updCommonDataImage(int commonDataId, byte[] image);
+
+    void updCommonDataImage(String name, byte[] image);
 
     void delCommonData(CommonData commonData);
 
