@@ -33,6 +33,7 @@ public abstract class RestaurantModelDaoTest {
     private static IngredientDao ingredientDao;
     private static PortionDao portionDao;
     private static WarehouseDao warehouseDao;
+    private static CommonDataDao commonDataDao;
 
     private static Employee employee() {
         return employeeDao.findAllEmployees().get(0);
@@ -77,6 +78,7 @@ public abstract class RestaurantModelDaoTest {
         ingredientDao = applicationContext.getBean(IngredientDao.class);
         portionDao = applicationContext.getBean(PortionDao.class);
         warehouseDao = applicationContext.getBean(WarehouseDao.class);
+        commonDataDao = applicationContext.getBean(CommonDataDao.class);
     }
 
     @BeforeClass
@@ -432,5 +434,9 @@ public abstract class RestaurantModelDaoTest {
         warehouseDao.findAllWarehouseIngredients().forEach(System.out::println);
         System.out.println("Warehouse elapsing ingredients:");
         warehouseDao.findAllElapsingWarehouseIngredients((float) 500.0).forEach(System.out::println);
+    }
+
+    @Test(timeout = 2000)
+    public void addFindDelCommonData() throws Exception {
     }
 }

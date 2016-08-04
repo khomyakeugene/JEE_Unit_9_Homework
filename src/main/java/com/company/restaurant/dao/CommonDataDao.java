@@ -10,9 +10,9 @@ import java.util.List;
 public interface CommonDataDao {
     CommonData addCommonData(CommonData commonData);
 
-    CommonData addCommonData(String name, String value);
-
     CommonData addCommonData(String name, String value, byte[] image);
+
+    CommonData addCommonData(String name, String value);
 
     void updCommonDataValue(int commonDataId, String value);
 
