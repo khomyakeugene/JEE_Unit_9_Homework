@@ -405,20 +405,27 @@ public abstract class RestaurantModelDaoTest {
 
         System.out.println("warehouseDao test ... ");
         for (Ingredient ingredient: ingredientDao.findAllIngredients()) {
-            for (Portion portion : portionDao.findAllPortions()) {
-                float amountToAdd = Util.getRandomFloat();
-                warehouseDao.addIngredientToWarehouse(ingredient, portion, amountToAdd);
-                float amountToTake = Util.getRandomFloat();
-                warehouseDao.takeIngredientFromWarehouse(ingredient, portion, amountToTake);
+            // If there is some information about ingredient in the warehouse, this information is important
+            // as a initial data in the system, and it is prohibited to modify this information
+            List<Warehouse> warehouseList = warehouseDao.findIngredientInWarehouseById(ingredient.getIngredientId());
+            if (warehouseList == null) {
+                for (Portion portion : portionDao.findAllPortions()) {
+                    float amountToAdd = Util.getRandomFloat();
+                    warehouseDao.addIngredientToWarehouse(ingredient, portion, amountToAdd);
+                    float amountToTake = Util.getRandomFloat();
+                    warehouseDao.takeIngredientFromWarehouse(ingredient, portion, amountToTake);
 
-                Warehouse warehouse = warehouseDao.findIngredientInWarehouse(ingredient, portion);
-                if (warehouse != null) {
-                    // "Clear" warehouse position
-                    warehouseDao.takeIngredientFromWarehouse(ingredient, portion, amountToAdd - amountToTake);
+                    Warehouse warehouse = warehouseDao.findIngredientInWarehouse(ingredient, portion);
+                    if (warehouse != null) {
+                        // "Clear" warehouse position
+                        warehouseDao.takeIngredientFromWarehouse(ingredient, portion, amountToAdd - amountToTake);
+                    }
                 }
+                // Test add / delete data only for ONE ingredient!
+                break;
+            } else {
+                warehouseDao.findIngredientInWarehouseByName(ingredient.getName()).forEach(System.out::println);
             }
-
-            warehouseDao.findIngredientInWarehouseByName(ingredient.getName()).forEach(System.out::println);
         }
 
         System.out.println("Warehouse all ingredients:");
