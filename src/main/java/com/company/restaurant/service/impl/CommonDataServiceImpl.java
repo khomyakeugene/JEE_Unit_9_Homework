@@ -8,6 +8,9 @@ import com.company.restaurant.service.impl.proto.Service;
  * Created by Yevhen on 04.08.2016.
  */
 public class CommonDataServiceImpl extends Service implements CommonDataService {
+    public static final String NAME_NAME = "name";
+    public static final String ADDRESS_NAME = "address";
+    public static final String E_MAIL_NAME = "e-mail";
     public static final String EMBLEM_NAME = "emblem";
     public static final String TRANSPORT_MAP_NAME = "transport map";
     public static final String RESTAURANT_SCHEMA_NAME = "restaurant schema";
@@ -16,6 +19,21 @@ public class CommonDataServiceImpl extends Service implements CommonDataService 
 
     public void setCommonDataDao(CommonDataDao commonDataDao) {
         this.commonDataDao = commonDataDao;
+    }
+
+    @Override
+    public String getRestaurantName() {
+        return commonDataDao.getCommonDataValue(NAME_NAME);
+    }
+
+    @Override
+    public String getRestaurantAddress() {
+        return commonDataDao.getCommonDataValue(ADDRESS_NAME);
+    }
+
+    @Override
+    public String getRestaurantEMail() {
+        return commonDataDao.getCommonDataValue(E_MAIL_NAME);
     }
 
     @Override
