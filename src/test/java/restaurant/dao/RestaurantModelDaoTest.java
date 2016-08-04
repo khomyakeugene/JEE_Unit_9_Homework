@@ -438,5 +438,29 @@ public abstract class RestaurantModelDaoTest {
 
     @Test(timeout = 2000)
     public void addFindDelCommonData() throws Exception {
+        CommonData commonData = new CommonData();
+        String commonDataName = Util.getRandomString();
+        String commonDataValue = Util.getRandomString();
+
+        commonData.setName(commonDataName);
+        commonData.setValue(commonDataValue);
+        commonData = commonDataDao.addCommonData(commonData);
+        int commonDataId = commonData.getCommonDataId();
+
+        assertTrue(commonData.equals(commonDataDao.findCommonDataById(commonDataId)));
+        assertTrue(commonData.equals(commonDataDao.findCommonDataByName(commonDataName)));
+        assertTrue(commonDataValue.equals(commonDataDao.getCommonDataValue(commonDataId)));
+        assertTrue(commonDataValue.equals(commonDataDao.getCommonDataValue(commonDataName)));
+
+        String commonDataNewValue = Util.getRandomString();
+        commonDataDao.updCommonDataValue(commonDataId, commonDataNewValue);
+        assertTrue(commonDataNewValue.equals(commonDataDao.getCommonDataValue(commonDataId)));
+
+        commonDataNewValue = Util.getRandomString();
+        commonDataDao.updCommonDataValue(commonDataName, commonDataNewValue);
+        assertTrue(commonDataNewValue.equals(commonDataDao.getCommonDataValue(commonDataName)));
+
+        commonDataDao.delCommonData(commonDataName);
+        assertTrue(commonDataDao.findCommonDataById(commonDataId) == null);
     }
 }
