@@ -1,7 +1,8 @@
 .main-menu {
     padding: 0;
-    width: 900px;
-    margin: 0 auto
+    width: 940px;
+    margin: 0 auto;
+    height: 50px;
 }
 .main-menu ul {
     list-style: none;
@@ -13,14 +14,12 @@
 }
 .main-menu a {
     float: left;
-    width: 200px;
-    height: 30px;
+    width: 210px;
     background-color: #4fcc3b;
     border-left: 2px solid #ffffff;
     text-decoration: none;
     text-align: center;
-    padding: 0;
-    padding-top: 10px;
+    padding: 10px;
     font-size: 18px;
     color: #ffffff
 }

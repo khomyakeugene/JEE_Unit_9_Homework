@@ -9,16 +9,16 @@
 <%@ include file="/WEB-INF/views/jsp/common-page-properties.jsp" %>
 
 <body>
-
 <div>
-    <div>
-        <%@ include file="/WEB-INF/views/jsp/main-menu.jsp" %>
+    <%@ include file="/WEB-INF/views/jsp/main-menu.jsp" %>
+
+    <div class="container">
+        <img src="data:image/jpeg;base64,${restaurantEmblemImage}"/>
     </div>
 
-    <div class="container" style="max-width: 50%">
-        <img class="img" style="max-width: 100%" src="data:image/jpeg;base64,${restaurantRestaurantSchema}" />
+    <div class="container" style="max-width: 57%">
+        <img class="img" style="max-width: 100%" src="data:image/jpeg;base64,${restaurantRestaurantSchema}"/>
     </div>
 </div>
 
 </body>
-</html>
