@@ -5,20 +5,11 @@
 <html>
 <head>
     <title>${restaurantName}</title>
-
-    <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
 </head>
 
 <body>
-<div class="main-menu">
-    <ul>
-        <li class="home"><a href="#">Home</a></li>
-        <li class="tutorials"><a href="#">Tutorials</a></li>
-        <li class="about"><a href="#">About</a></li>
-        <li class="news"><a href="#">Newsletter</a></li>
-        <li class="contact"><a href="#">Contact</a></li>
-    </ul>
-</div>
+
+<%@ include file="/WEB-INF/views/jsp/index.jsp" %>
 
 <div class="container">
     <img src="data:image/jpeg;base64,${restaurantEmblemImage}"/>
