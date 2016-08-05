@@ -4,6 +4,9 @@ import com.company.restaurant.dao.CommonDataDao;
 import com.company.restaurant.service.CommonDataService;
 import com.company.restaurant.service.impl.proto.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by Yevhen on 04.08.2016.
  */
@@ -11,6 +14,7 @@ public class CommonDataServiceImpl extends Service implements CommonDataService 
     private static final String NAME_NAME = "name";
     private static final String ADDRESS_NAME = "address";
     private static final String E_MAIL_NAME = "e-mail";
+    private static final String PHONE_NUMBERS_MASK = "phone number";
     public static final String EMBLEM_NAME = "emblem";
     public static final String TRANSPORT_MAP_NAME = "transport map";
     public static final String RESTAURANT_SCHEMA_NAME = "restaurant schema";
@@ -49,5 +53,16 @@ public class CommonDataServiceImpl extends Service implements CommonDataService 
     @Override
     public byte[] getTransportMapImage() {
         return commonDataDao.getCommonDataImage(TRANSPORT_MAP_NAME);
+    }
+
+    @Override
+    public List<String> getPhoneNumbers() {
+        List<String> result = new ArrayList<>();
+
+        commonDataDao.findAllCommonData().stream().
+                filter(d -> (d.getValue() != null) && (d.getName().trim().indexOf(PHONE_NUMBERS_MASK) == 0)).
+                forEach(d -> result.add(d.getValue().trim()));
+
+        return result;
     }
 }

@@ -12,10 +12,11 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class MainController {
-    private static final String START_VIEW_NAME = "index";
+    private static final String MAIN_PAGE_VIEW_NAME = "index";
     private static final String RESTAURANT_NAME_VAR_NAME = "restaurantName";
     private static final String RESTAURANT_ADDRESS_VAR_NAME = "restaurantAddress";
     private static final String RESTAURANT_E_MAIL_VAR_NAME = "restaurantEMail";
+    private static final String RESTAURANT_PHONE_NUMBERS_VAR_NAME = "restaurantPhoneNumbers";
     private static final String RESTAURANT_EMBLEM_IMAGE_VAR_NAME = "restaurantEmblemImage";
     private static final String RESTAURANT_TRANSPORT_IMAGE_MAP_VAR_NAME = "restaurantTransportMapImage";
     private static final String RESTAURANT_RESTAURANT_SCHEMA_IMAGE_MAP_VAR_NAME = "restaurantRestaurantSchema";
@@ -34,12 +35,13 @@ public class MainController {
         modelAndView.addObject(RESTAURANT_NAME_VAR_NAME, commonDataService.getRestaurantName());
         modelAndView.addObject(RESTAURANT_ADDRESS_VAR_NAME, commonDataService.getRestaurantAddress());
         modelAndView.addObject(RESTAURANT_E_MAIL_VAR_NAME, commonDataService.getRestaurantEMail());
+        modelAndView.addObject(RESTAURANT_PHONE_NUMBERS_VAR_NAME, commonDataService.getPhoneNumbers());
         modelAndView.addObject(RESTAURANT_EMBLEM_IMAGE_VAR_NAME, commonDataService.getEmblemImage());
         modelAndView.addObject(RESTAURANT_TRANSPORT_IMAGE_MAP_VAR_NAME, commonDataService.getTransportMapImage());
         modelAndView.addObject(RESTAURANT_RESTAURANT_SCHEMA_IMAGE_MAP_VAR_NAME,
                 commonDataService.getRestaurantSchemeImage());
 
-        modelAndView.setViewName(START_VIEW_NAME);
+        modelAndView.setViewName(MAIN_PAGE_VIEW_NAME);
 
         return modelAndView;
     }
