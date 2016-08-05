@@ -468,18 +468,27 @@ public abstract class RestaurantModelDaoTest {
         assertTrue(commonDataDao.findCommonDataById(commonDataId) == null);
     }
 
+    private boolean saveCommonDataImage(String commonDataName, String imageFilename) {
+        byte[] image = Util.readResourceFileToByteArray(imageFilename);
+
+        if (image != null) {
+            commonDataDao.updCommonDataImage(commonDataName, image);
+        }
+
+        return (image != null);
+    }
+
+    private void AssertSaveCommonDataImage(String commonDataName, String imageFilename) {
+        assertTrue(saveCommonDataImage(commonDataName, imageFilename));
+    }
+
     @Test
     public void saveCommonDataImages() throws Exception {
         // Emblem image
-        commonDataDao.updCommonDataImage(CommonDataServiceImpl.EMBLEM_NAME,
-                Util.readResourceFileToByteArray(EMBLEM_FILENAME));
-
+        AssertSaveCommonDataImage(CommonDataServiceImpl.EMBLEM_NAME, EMBLEM_FILENAME);
         // Restaurant schema image
-        commonDataDao.updCommonDataImage(CommonDataServiceImpl.RESTAURANT_SCHEMA_NAME,
-                Util.readResourceFileToByteArray(RESTAURANT_SCHEMA_FILENAME));
-
+        AssertSaveCommonDataImage(CommonDataServiceImpl.RESTAURANT_SCHEMA_NAME, RESTAURANT_SCHEMA_FILENAME);
         // Transport map
-        commonDataDao.updCommonDataImage(CommonDataServiceImpl.TRANSPORT_MAP_NAME,
-                Util.readResourceFileToByteArray(TRANSPORT_MAP_FILENAME));
+        AssertSaveCommonDataImage(CommonDataServiceImpl.TRANSPORT_MAP_NAME, TRANSPORT_MAP_FILENAME);
     }
 }
