@@ -5,6 +5,10 @@
   Time: 15:07
   To change this template use File | Settings | File Templates.
 --%>
+<%--@elvariable id="restaurantAddress" type="com.company.restaurant.web.MainController"--%>
+<%--@elvariable id="restaurantEMail" type="com.company.restaurant.web.MainController"--%>
+<%--@elvariable id="restaurantPhoneNumbers" type="com.company.restaurant.web.MainController"--%>
+
 <h3>Contacts</h3>
 <table class="standard-table">
     <tr>

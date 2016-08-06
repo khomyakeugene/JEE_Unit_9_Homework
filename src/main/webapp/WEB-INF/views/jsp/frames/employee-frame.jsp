@@ -10,13 +10,6 @@
 
 <h3>Our personnel</h3>
 <table class="employee-table">
-    <%--
-    <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Photo</th>
-    </tr>
-    --%>
     <c:forEach items="${employees}" var="employee">
         <tr>
             <td><b>${employee.firstName}</b></td>
