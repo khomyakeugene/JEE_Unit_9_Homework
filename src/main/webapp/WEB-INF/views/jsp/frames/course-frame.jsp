@@ -2,31 +2,18 @@
   Created by IntelliJ IDEA.
   User: Yevhen
   Date: 06.08.2016
-  Time: 17:37
+  Time: 20:50
   To change this template use File | Settings | File Templates.
 --%>
-<%--@elvariable id="courses" type="com.company.restaurant.web.MainController"--%>
-<%--@elvariable id="course" type="com.company.restaurant.model.Course"--%>
-
-<h3>Courses</h3>
-<div>
-    <div class="ordinary-container">
-        Search
-    </div>
-    <div class="ordinary-container">
-        <table class="course-table">
-            <tr>
-                <th>Name</th>
-                <th style="text-align: right">Weight</th>
-                <th style="text-align: right">Cost</th>
-            </tr>
-            <c:forEach items="${courses}" var="course">
-                <tr>
-                    <td><b><a href="/course/${course.courseId}">${course.name}</a></b></td>
-                    <td style="text-align: right">${course.weight}</td>
-                    <td style="text-align: right">${course.cost}</td>
-                </tr>
-            </c:forEach>
-        </table>
+<div class="horizontal-container ordinary-container">
+    <div class="horizontal-part-holder ordinary-container">
+        <div class="two-thirds">
+            <%@ include file="/WEB-INF/views/jsp/frames/transport-map-frame.jsp" %>
+        </div>
+        <div class="third">
+            <div class="ordinary-container">
+                <img class="img" style="max-width: 100%" src="data:image/jpeg;base64,${course.base64EncodePhoto}"/>
+            </div>
+        </div>
     </div>
 </div>
