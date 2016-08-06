@@ -9,9 +9,12 @@
     text-align: left;
     font-family: Arial, serif;
 }
+.employee-table th,
 .employee-table td,
+.course-table th,
 .course-table td {
-    padding-left: 7px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .employee-table tr:nth-of-type(odd),
 .course-table tr:nth-of-type(odd) {
