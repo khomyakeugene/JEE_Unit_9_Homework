@@ -26,11 +26,14 @@ public abstract class RestaurantModelDaoTest {
     private final static String TRANSPORT_MAP_FILENAME = "images/transport_map.jpg";
 
     private final static int MANAGER_EMPLOYEE_ID = 1;
-    private final static int CHEF_EMPLOYEE_ID = 2;
-    private final static int WAITER_EMPLOYEE_ID = 3;
     private final static String MANAGER_PHOTO_FILENAME = "images/personnel/Manager.png";
-    private final static String CHEF_PHOTO_FILENAME = "images/personnel/Cook.png";
+    private final static int CHEF_EMPLOYEE_ID = 2;
+    private final static String CHEF_PHOTO_FILENAME = "images/personnel/Chef.png";
+    private final static int WAITER_EMPLOYEE_ID = 3;
     private final static String WAITER_PHOTO_FILENAME = "images/personnel/Waiter.png";
+
+    private final static int BEER_DOMS_ID = 10001;
+    private final static String BEER_DOMS_PHOTO_FILENAME = "images/courses/Beer_Doms.jpg";
 
     private static JobPositionDao jobPositionDao;
     private static EmployeeDao employeeDao;
@@ -524,4 +527,23 @@ public abstract class RestaurantModelDaoTest {
         AssertSaveEmployeeImage(WAITER_EMPLOYEE_ID, WAITER_PHOTO_FILENAME);
     }
 
+    private boolean saveCourseImage(int courseId, String imageFilename) {
+        byte[] image = Util.readResourceFileToByteArray(imageFilename);
+
+        if (image != null) {
+            courseDao.updCoursePhoto(courseId, image);
+        }
+
+        return (image != null);
+    }
+
+    private void AssertSaveCourseImage(int courseId, String imageFilename) {
+        assertTrue(saveCourseImage(courseId, imageFilename));
+    }
+
+    @Test
+    public void saveCourseImages() throws Exception {
+        // Beer "Doms"
+        AssertSaveCourseImage(BEER_DOMS_ID, BEER_DOMS_PHOTO_FILENAME);
+    }
 }
