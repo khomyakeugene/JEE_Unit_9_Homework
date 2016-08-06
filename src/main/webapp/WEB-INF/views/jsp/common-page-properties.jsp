@@ -10,6 +10,7 @@
 <html>
 <head>
     <title>Restaurant "${restaurantName}"</title>
+    <link href="<c:url value="/resources/css/common.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/container.css"/>" rel="stylesheet">
 </head>
 </html>

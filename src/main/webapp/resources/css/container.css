@@ -1,35 +1,44 @@
-.container {
+.ordinary-container {
     position: relative;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-bottom: 20px;
+    padding: 15px;
     font-family: Arial, serif;
-    border: 1px solid #000000;
-    border-collapse: collapse;
+    /*border: 1px solid #000000;*/
+    /*border-collapse: collapse;*/
 }
 
+.horizontal-container {
+    width: 100%;
+    display: table;
+}
+.horizontal-part-holder {
+    float: left;
+    width: 100%;
+    display: table-cell;
+}
 .third {
     padding: 0;
-    background-color: gray;
-    /*height: 100px;*/
     float: left;
     display: table-cell;
     width: 33%;
-}
-.third:hover {
-    background-color: red;
-}
-.third_holder {
-    float: left;
-    width: 100%;
-    display: table-cell;
-}
-.whole_container {
-    width: 100%;
-    display: table;
 }
 .image-to-centre img {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+.text-centre,
+.around-emblem-text {
+    text-align: center;
+    vertical-align: middle;
+}
+.around-emblem-text {
+    font-size: 70px;
+    font-weight: bold;
+    line-height: 200px;
+}
+.two-thirds {
+    padding: 0;
+    float: left;
+    display: table-cell;
+    width: 67%;
 }

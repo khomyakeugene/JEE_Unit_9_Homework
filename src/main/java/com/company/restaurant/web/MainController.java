@@ -18,7 +18,6 @@ import java.util.Base64;
 public class MainController extends CommonDataController {
     private static final String MAIN_PAGE_VIEW_NAME = "main-page";
     private static final String RESTAURANT_EMBLEM_IMAGE_VAR_NAME = "restaurantEmblemImage";
-    private static final String RESTAURANT_TRANSPORT_IMAGE_MAP_VAR_NAME = "restaurantTransportMapImage";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView mainPage() {
@@ -26,9 +25,6 @@ public class MainController extends CommonDataController {
 
         modelAndView.addObject(RESTAURANT_EMBLEM_IMAGE_VAR_NAME,
                 base64EncodeToString(commonDataService.getEmblemImage()));
-        modelAndView.addObject(RESTAURANT_TRANSPORT_IMAGE_MAP_VAR_NAME,
-                base64EncodeToString(commonDataService.getTransportMapImage()));
-
         modelAndView.setViewName(MAIN_PAGE_VIEW_NAME);
 
         return modelAndView;

@@ -20,7 +20,6 @@ public class RestaurantSchemaController extends CommonDataController {
 
         modelAndView.addObject(RESTAURANT_RESTAURANT_SCHEMA_IMAGE_MAP_VAR_NAME,
                 base64EncodeToString(commonDataService.getRestaurantSchemeImage()));
-
         modelAndView.setViewName(RESTAURANT_SCHEMA_PAGE_VIEW_NAME);
 
         return modelAndView;

@@ -11,16 +11,27 @@
 <body>
 <%@ include file="/WEB-INF/views/jsp/main-menu.jsp" %>
 
-<div class="whole_container">
-    <div class="third_holder">
-        <div class="third">
-            LEFT
+<div class="horizontal-container ordinary-container">
+    <div class="horizontal-part-holder">
+        <div class="third around-emblem-text">
+            Restaurant
         </div>
         <div class="third image-to-centre">
             <img src="data:image/jpeg;base64,${restaurantEmblemImage}"/>
         </div>
+        <div class="third around-emblem-text">
+            ${restaurantName}
+        </div>
+    </div>
+</div>
+
+<div class="horizontal-container ordinary-container">
+    <div class="horizontal-part-holder ordinary-container">
+        <div class="two-thirds">
+            <h3>Menu</h3>
+        </div>
         <div class="third">
-            RIGHT
+            <%@ include file="/WEB-INF/views/jsp/contacts-frame.jsp" %>
         </div>
     </div>
 </div>
