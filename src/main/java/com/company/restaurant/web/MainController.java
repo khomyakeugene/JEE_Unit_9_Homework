@@ -17,14 +17,11 @@ import java.util.Base64;
 @Controller
 public class MainController extends CommonDataController {
     private static final String MAIN_PAGE_VIEW_NAME = "main-page";
-    private static final String RESTAURANT_EMBLEM_IMAGE_VAR_NAME = "restaurantEmblemImage";
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView mainPage() {
         initData();
 
-        modelAndView.addObject(RESTAURANT_EMBLEM_IMAGE_VAR_NAME,
-                base64EncodeToString(commonDataService.getEmblemImage()));
         modelAndView.setViewName(MAIN_PAGE_VIEW_NAME);
 
         return modelAndView;

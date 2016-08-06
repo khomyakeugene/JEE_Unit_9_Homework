@@ -5,9 +5,9 @@
   Time: 15:23
   To change this template use File | Settings | File Templates.
 --%>
-<html>
 <%@ include file="/WEB-INF/views/jsp/properties/common-page-properties.jsp" %>
 
+<html>
 <body>
 <%@ include file="/WEB-INF/views/jsp/frames/main-menu-frame.jsp" %>
 

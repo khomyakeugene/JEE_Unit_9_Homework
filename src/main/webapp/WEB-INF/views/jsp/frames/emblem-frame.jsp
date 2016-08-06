@@ -5,9 +5,6 @@
   Time: 15:29
   To change this template use File | Settings | File Templates.
 --%>
-<head>
-    <link href="<c:url value="/resources/css/container.css"/>" rel="stylesheet">
-</head>
 <div class="horizontal-container ordinary-container">
     <div class="horizontal-part-holder">
         <div class="third around-emblem-text">

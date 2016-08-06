@@ -13,7 +13,7 @@
     <ul>
         <li><a href="/">Main</a></li>
         <li><a href="/restaurant-schema">Restaurant scheme</a></li>
-        <li><a href="#">Our personnel</a></li>
+        <li><a href="/personnel">Our personnel</a></li>
         <li><a href="/contacts">Contacts</a></li>
     </ul>
 </div>
