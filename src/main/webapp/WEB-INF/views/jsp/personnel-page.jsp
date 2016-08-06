@@ -15,7 +15,7 @@
 <div class="horizontal-container ordinary-container">
     <div class="horizontal-part-holder ordinary-container">
         <div class="two-thirds">
-            <h3>Our personnel</h3>
+            <%@ include file="/WEB-INF/views/jsp/frames/personnel-frame.jsp" %>
         </div>
         <div class="third">
             <%@ include file="/WEB-INF/views/jsp/frames/contacts-frame.jsp" %>

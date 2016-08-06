@@ -14,9 +14,7 @@
 <div class="horizontal-container ordinary-container">
     <div class="horizontal-part-holder ordinary-container">
         <div class="two-thirds">
-            <div class="ordinary-container" style="max-width: inherit">
-                <img class="img" style="max-width: 100%" src="data:image/jpeg;base64,${restaurantTransportMapImage}"/>
-            </div>
+            <%@ include file="/WEB-INF/views/jsp/frames/transport-map-frame.jsp" %>
         </div>
         <div class="third">
             <%@ include file="/WEB-INF/views/jsp/frames/contacts-frame.jsp" %>

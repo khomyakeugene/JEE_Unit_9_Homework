@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class PersonnelController extends CommonDataController {
     private static final String PERSONNEL_PAGE_VIEW_NAME = "/personnel-page";
-    private static final String RESTAURANT_EMPLOYEES_VAR_NAME = "restaurantEmployees";
+    private static final String EMPLOYEES_VAR_NAME = "employees";
 
     private EmployeeService employeeService;
 
@@ -27,7 +27,7 @@ public class PersonnelController extends CommonDataController {
     public ModelAndView employeePage() {
         initData();
 
-        modelAndView.addObject(RESTAURANT_EMPLOYEES_VAR_NAME, employeeService.findAllEmployees());
+        modelAndView.addObject(EMPLOYEES_VAR_NAME, employeeService.findAllEmployees());
         modelAndView.setViewName(PERSONNEL_PAGE_VIEW_NAME);
 
         return modelAndView;
