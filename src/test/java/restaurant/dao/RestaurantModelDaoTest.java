@@ -20,9 +20,17 @@ import static org.junit.Assert.assertTrue;
  */
 public abstract class RestaurantModelDaoTest {
     private final static String DUPLICATE_KEY_VALUE_VIOLATES_MESSAGE = "duplicate key value violates";
+
     private final static String EMBLEM_FILENAME = "images/Hamster.png";
     private final static String RESTAURANT_SCHEMA_FILENAME = "images/restaurant_schema.jpg";
     private final static String TRANSPORT_MAP_FILENAME = "images/transport_map.jpg";
+
+    private final static int MANAGER_EMPLOYEE_ID = 1;
+    private final static int COOK_EMPLOYEE_ID = 2;
+    private final static int WAITER_EMPLOYEE_ID = 3;
+    private final static String MANAGER_PHOTO_FILENAME = "images/personnel/Manager.png";
+    private final static String COOK_PHOTO_FILENAME = "images/personnel/Cook.png";
+    private final static String WAITER_PHOTO_FILENAME = "images/personnel/Waiter.png";
 
     private static JobPositionDao jobPositionDao;
     private static EmployeeDao employeeDao;
@@ -491,4 +499,29 @@ public abstract class RestaurantModelDaoTest {
         // Transport map
         AssertSaveCommonDataImage(CommonDataServiceImpl.TRANSPORT_MAP_NAME, TRANSPORT_MAP_FILENAME);
     }
+
+    private boolean saveEmployeeImage(int employeeId, String imageFilename) {
+        byte[] image = Util.readResourceFileToByteArray(imageFilename);
+
+        if (image != null) {
+            employeeDao.updEmployeePhoto(employeeId, image);
+        }
+
+        return (image != null);
+    }
+
+    private void AssertSaveEmployeeImage(int employeeId, String imageFilename) {
+        assertTrue(saveEmployeeImage(employeeId, imageFilename));
+    }
+
+    @Test
+    public void saveEmployeeImages() throws Exception {
+        // Manager
+        AssertSaveEmployeeImage(MANAGER_EMPLOYEE_ID, MANAGER_PHOTO_FILENAME);
+        // Cook
+        AssertSaveEmployeeImage(COOK_EMPLOYEE_ID, COOK_PHOTO_FILENAME);
+        // Waiter
+        AssertSaveEmployeeImage(WAITER_EMPLOYEE_ID, WAITER_PHOTO_FILENAME);
+    }
+
 }
