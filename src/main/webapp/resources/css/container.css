@@ -21,6 +21,24 @@
     display: table-cell;
     width: 33%;
 }
+.two-thirds {
+    padding: 0;
+    float: left;
+    display: table-cell;
+    width: 67%;
+}
+.fifth {
+    padding: 0;
+    float: left;
+    display: table-cell;
+    width: 20%;
+}
+.three-fifths {
+    padding: 0;
+    float: left;
+    display: table-cell;
+    width: 60%;
+}
 .image-to-centre img {
     display: block;
     margin-left: auto;
@@ -36,26 +54,6 @@
     font-weight: bold;
     line-height: 200px;
 }
-.two-thirds {
-    padding: 0;
-    float: left;
-    display: table-cell;
-    width: 67%;
-}
-
-.horizontal-container-flex-start {
-    display: flex;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border: 1px solid #000000;
-    border-collapse: collapse;
-}
-.horizontal-container-left-part {
-    width: 100px;
-}
-.horizontal-container-right-part {
-    width: 100%;
-}
 .form-control {
     border-radius: 5px;
     padding: 5px;
@@ -63,6 +61,7 @@
 }
 .form-label {
     font-weight: bold;
+    vertical-align: middle;
 }
 
 

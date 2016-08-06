@@ -10,14 +10,19 @@
 
 <%--<h3>Courses</h3>--%>
 <div>
-    <div>
-        <div class="horizontal-container-flex-start">
-            <div class="horizontal-container-left-part">
-                <label for="courseName" class="form-label"><h3>Course</h3></label>
+    <div class="horizontal-container">
+        <div class="horizontal-part-holder">
+            <div class="fifth form-label">
+                <label for="courseName"><h3>Course</h3></label>
             </div>
-            <div class="horizontal-container-right-part">
+
+            <div class="three-fifths">
                 <input type="text" class="form-control" id="courseName"
                        name="courseName" placeholder="Enter course name" required autofocus>
+            </div>
+
+            <div class="fifth">
+
             </div>
         </div>
     </div>
