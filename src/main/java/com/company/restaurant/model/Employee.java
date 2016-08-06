@@ -1,15 +1,17 @@
 package com.company.restaurant.model;
 
+import com.company.restaurant.model.proto.ImageObject;
+import com.company.restaurant.model.proto.PhotoHolderObject;
+
 /**
  * Created by Yevhen on 19.05.2016.
  */
-public class Employee {
+public class Employee extends PhotoHolderObject {
     private int employeeId;
     private String firstName;
     private String secondName;
     private String phoneNumber;
     private Float salary;
-    private byte[] photo;
     private JobPosition jobPosition = new JobPosition();
 
     public int getEmployeeId() {
@@ -50,14 +52,6 @@ public class Employee {
 
     public void setSalary(Float salary) {
         this.salary = salary;
-    }
-
-    public byte[] getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(byte[] photo) {
-        this.photo = photo;
     }
 
     public JobPosition getJobPosition() {
