@@ -14,7 +14,7 @@ public class PersonnelController extends CommonDataController {
     private static final String PERSONNEL_PAGE_VIEW_NAME = "/personnel-page";
 
     @RequestMapping(value = "/personnel", method = RequestMethod.GET)
-    public ModelAndView restaurantSchemaPage() {
+    public ModelAndView perPage() {
         initData();
 
         modelAndView.setViewName(PERSONNEL_PAGE_VIEW_NAME);
