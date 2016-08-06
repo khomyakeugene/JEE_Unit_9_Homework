@@ -42,3 +42,27 @@
     display: table-cell;
     width: 67%;
 }
+
+.horizontal-container-flex-start {
+    display: flex;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+.horizontal-container-left-part {
+    width: 100px;
+}
+.horizontal-container-right-part {
+    width: 100%;
+}
+.form-control {
+    border-radius: 5px;
+    padding: 5px;
+    width: 70%;
+}
+.form-label {
+    font-weight: bold;
+}
+
+

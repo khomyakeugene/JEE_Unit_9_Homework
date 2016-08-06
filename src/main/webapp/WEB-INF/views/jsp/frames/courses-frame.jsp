@@ -8,12 +8,21 @@
 <%--@elvariable id="courses" type="com.company.restaurant.web.MainController"--%>
 <%--@elvariable id="course" type="com.company.restaurant.model.Course"--%>
 
-<h3>Courses</h3>
+<%--<h3>Courses</h3>--%>
 <div>
-    <div class="ordinary-container">
-        Search
+    <div>
+        <div class="horizontal-container-flex-start">
+            <div class="horizontal-container-left-part">
+                <label for="courseName" class="form-label"><h3>Course</h3></label>
+            </div>
+            <div class="horizontal-container-right-part">
+                <input type="text" class="form-control" id="courseName"
+                       name="courseName" placeholder="Enter course name" required autofocus>
+            </div>
+        </div>
     </div>
-    <div class="ordinary-container">
+
+    <div>
         <table class="course-table">
             <tr>
                 <th>Title</th>
