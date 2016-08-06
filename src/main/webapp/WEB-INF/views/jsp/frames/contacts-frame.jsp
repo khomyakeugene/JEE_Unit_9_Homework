@@ -5,11 +5,6 @@
   Time: 15:07
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-</head>
-<body>
 <h3>Contacts</h3>
 <table class="standard-table">
     <tr>
@@ -33,6 +28,3 @@
         <td><b>${restaurantEMail}</b></td>
     </tr>
 </table>
-
-</body>
-</html>
