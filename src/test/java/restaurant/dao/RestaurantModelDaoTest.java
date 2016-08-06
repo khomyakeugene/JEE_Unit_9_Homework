@@ -32,6 +32,8 @@ public abstract class RestaurantModelDaoTest {
     private final static int WAITER_EMPLOYEE_ID = 3;
     private final static String WAITER_PHOTO_FILENAME = "images/personnel/Waiter.png";
 
+    private final static int CHICKEN_WITH_MUSHROOMS_ID = 4001;
+    private final static String CHICKEN_WITH_MUSHROOMS_PHOTO_FILENAME = "images/courses/Chicken_With_Mushrooms.jpg";
     private final static int BEER_DOMS_ID = 10001;
     private final static String BEER_DOMS_PHOTO_FILENAME = "images/courses/Beer_Doms.jpg";
 
@@ -543,6 +545,8 @@ public abstract class RestaurantModelDaoTest {
 
     @Test
     public void saveCourseImages() throws Exception {
+        // Chicken with mushrooms
+        AssertSaveCourseImage(CHICKEN_WITH_MUSHROOMS_ID, CHICKEN_WITH_MUSHROOMS_PHOTO_FILENAME);
         // Beer "Doms"
         AssertSaveCourseImage(BEER_DOMS_ID, BEER_DOMS_PHOTO_FILENAME);
     }
