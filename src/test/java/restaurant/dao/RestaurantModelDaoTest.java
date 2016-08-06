@@ -26,10 +26,10 @@ public abstract class RestaurantModelDaoTest {
     private final static String TRANSPORT_MAP_FILENAME = "images/transport_map.jpg";
 
     private final static int MANAGER_EMPLOYEE_ID = 1;
-    private final static int COOK_EMPLOYEE_ID = 2;
+    private final static int CHEF_EMPLOYEE_ID = 2;
     private final static int WAITER_EMPLOYEE_ID = 3;
     private final static String MANAGER_PHOTO_FILENAME = "images/personnel/Manager.png";
-    private final static String COOK_PHOTO_FILENAME = "images/personnel/Cook.png";
+    private final static String CHEF_PHOTO_FILENAME = "images/personnel/Cook.png";
     private final static String WAITER_PHOTO_FILENAME = "images/personnel/Waiter.png";
 
     private static JobPositionDao jobPositionDao;
@@ -519,7 +519,7 @@ public abstract class RestaurantModelDaoTest {
         // Manager
         AssertSaveEmployeeImage(MANAGER_EMPLOYEE_ID, MANAGER_PHOTO_FILENAME);
         // Cook
-        AssertSaveEmployeeImage(COOK_EMPLOYEE_ID, COOK_PHOTO_FILENAME);
+        AssertSaveEmployeeImage(CHEF_EMPLOYEE_ID, CHEF_PHOTO_FILENAME);
         // Waiter
         AssertSaveEmployeeImage(WAITER_EMPLOYEE_ID, WAITER_PHOTO_FILENAME);
     }

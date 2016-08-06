@@ -17,7 +17,7 @@
             <table>
                 <c:forEach items="${restaurantPhoneNumbers}" var="phoneNumber">
                     <tr>
-                        <td><b><c:out value="${phoneNumber}"/></b></td>
+                        <td><b>${phoneNumber}</b></td>
                     </tr>
                 </c:forEach>
             </table>

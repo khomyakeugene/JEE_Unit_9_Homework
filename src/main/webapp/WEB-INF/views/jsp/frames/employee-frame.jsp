@@ -6,10 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%--@elvariable id="employees" type="com.company.restaurant.web.PersonnelController"--%>
-<%--@elvariable id="employee" type="com.company.spring.mvc.model.Employee"--%>
+<%--@elvariable id="employee" type="com.company.restaurant.model.Employee"--%>
 
 <h3>Our personnel</h3>
-<table class="standard-table">
+<table class="employee-table">
     <tr>
         <th>Name</th>
         <th>Position</th>
@@ -17,7 +17,12 @@
     </tr>
     <c:forEach items="${employees}" var="employee">
         <tr>
-            <td>${employee.firstName}</td>
+            <td><b>${employee.firstName}</b></td>
+            <td>${employee.jobPosition.name}</td>
+            <td>
+                <img src="data:image/jpeg;base64,${employee.base64EncodePhoto}"
+                     height="70" width="70"/>
+            </td>
         </tr>
     </c:forEach>
 </table>

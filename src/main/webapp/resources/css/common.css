@@ -1,8 +1,13 @@
-.standard-table {
+.standard-table,
+.employee-table {
     border-spacing: 5px;
     width: 100%;
     max-width: 100%;
     margin-bottom: 20px;
     text-align: left;
     font-family: Arial, serif;
+}
+
+.employee-table tr:nth-of-type(odd) {
+    background-color: rgba(79, 204, 59, 0.2);
 }
