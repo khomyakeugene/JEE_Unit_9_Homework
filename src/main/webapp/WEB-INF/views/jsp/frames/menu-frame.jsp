@@ -6,3 +6,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <h3>Menu</h3>
+<div>
+    <div class="ordinary-container">
+        Search
+    </div>
+    <div class="ordinary-container">
+        List
+    </div>
+</div>

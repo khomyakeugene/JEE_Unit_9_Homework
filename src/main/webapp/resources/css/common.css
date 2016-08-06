@@ -1,13 +1,19 @@
 .standard-table,
-.employee-table {
+.employee-table,
+.course-table {
     border-spacing: 5px;
+    padding: 7px;
     width: 100%;
     max-width: 100%;
     margin-bottom: 20px;
     text-align: left;
     font-family: Arial, serif;
 }
-
-.employee-table tr:nth-of-type(odd) {
+.employee-table td,
+.course-table td {
+    padding-left: 7px;
+}
+.employee-table tr:nth-of-type(odd),
+.course-table tr:nth-of-type(odd) {
     background-color: rgba(79, 204, 59, 0.2);
 }
