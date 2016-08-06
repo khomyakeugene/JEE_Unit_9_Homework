@@ -1,6 +1,7 @@
 package com.company.restaurant.web;
 
 import com.company.restaurant.service.CommonDataService;
+import com.company.restaurant.web.proto.CommonDataController;
 import com.company.restaurant.web.proto.ControllerProto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,37 +15,19 @@ import java.util.Base64;
  * Created by Yevhen on 28.07.2016.
  */
 @Controller
-public class MainController extends ControllerProto {
-    private static final String MAIN_PAGE_VIEW_NAME = "index";
-    private static final String RESTAURANT_NAME_VAR_NAME = "restaurantName";
-    private static final String RESTAURANT_ADDRESS_VAR_NAME = "restaurantAddress";
-    private static final String RESTAURANT_E_MAIL_VAR_NAME = "restaurantEMail";
-    private static final String RESTAURANT_PHONE_NUMBERS_VAR_NAME = "restaurantPhoneNumbers";
+public class MainController extends CommonDataController {
+    private static final String MAIN_PAGE_VIEW_NAME = "main-page";
     private static final String RESTAURANT_EMBLEM_IMAGE_VAR_NAME = "restaurantEmblemImage";
     private static final String RESTAURANT_TRANSPORT_IMAGE_MAP_VAR_NAME = "restaurantTransportMapImage";
-    private static final String RESTAURANT_RESTAURANT_SCHEMA_IMAGE_MAP_VAR_NAME = "restaurantRestaurantSchema";
-
-    private CommonDataService commonDataService;
-
-    @Autowired
-    public void setCommonDataService(CommonDataService commonDataService) {
-        this.commonDataService = commonDataService;
-    }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ModelAndView index() {
-        ModelAndView modelAndView = new ModelAndView();
+    public ModelAndView mainPage() {
+        initData();
 
-        modelAndView.addObject(RESTAURANT_NAME_VAR_NAME, commonDataService.getRestaurantName());
-        modelAndView.addObject(RESTAURANT_ADDRESS_VAR_NAME, commonDataService.getRestaurantAddress());
-        modelAndView.addObject(RESTAURANT_E_MAIL_VAR_NAME, commonDataService.getRestaurantEMail());
-        modelAndView.addObject(RESTAURANT_PHONE_NUMBERS_VAR_NAME, commonDataService.getPhoneNumbers());
         modelAndView.addObject(RESTAURANT_EMBLEM_IMAGE_VAR_NAME,
                 base64EncodeToString(commonDataService.getEmblemImage()));
         modelAndView.addObject(RESTAURANT_TRANSPORT_IMAGE_MAP_VAR_NAME,
                 base64EncodeToString(commonDataService.getTransportMapImage()));
-        modelAndView.addObject(RESTAURANT_RESTAURANT_SCHEMA_IMAGE_MAP_VAR_NAME,
-                base64EncodeToString(commonDataService.getRestaurantSchemeImage()));
 
         modelAndView.setViewName(MAIN_PAGE_VIEW_NAME);
 
