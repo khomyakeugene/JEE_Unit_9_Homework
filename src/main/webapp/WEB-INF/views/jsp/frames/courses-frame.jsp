@@ -8,7 +8,6 @@
 <%--@elvariable id="courses" type="com.company.restaurant.web.MainController"--%>
 <%--@elvariable id="course" type="com.company.restaurant.model.Course"--%>
 
-<%--<h3>Courses</h3>--%>
 <div>
     <div class="horizontal-container">
         <div class="horizontal-part-holder">
