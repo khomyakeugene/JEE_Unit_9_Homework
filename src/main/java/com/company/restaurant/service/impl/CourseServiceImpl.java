@@ -7,6 +7,7 @@ import com.company.restaurant.model.CourseCategory;
 import com.company.restaurant.service.CourseService;
 import com.company.restaurant.service.impl.proto.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CourseServiceImpl extends Service implements CourseService {
@@ -74,5 +75,15 @@ public class CourseServiceImpl extends Service implements CourseService {
     @Override
     public List<Course> findAllCourses() {
         return courseDao.findAllCourses();
+    }
+
+    @Override
+    public List<Course> findCourseByNameFragment(String nameFragment) {
+        List<Course> result = new ArrayList<>();
+
+        findAllCourses().stream().filter(c -> (c.getName().trim().contains(nameFragment))).
+                forEach(result::add);
+
+        return result;
     }
 }

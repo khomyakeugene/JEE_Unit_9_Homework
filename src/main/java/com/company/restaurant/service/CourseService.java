@@ -30,4 +30,6 @@ public interface CourseService {
     Course findCourseById(int courseId);
 
     List<Course> findAllCourses();
+
+    List<Course> findCourseByNameFragment(String nameFragment);
 }
