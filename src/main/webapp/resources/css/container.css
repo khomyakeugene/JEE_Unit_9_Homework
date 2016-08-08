@@ -2,11 +2,10 @@
     position: relative;
     padding: 5px;
     font-family: Arial, serif;
-    /*border: 1px solid #000000;*/
-    /*border-collapse: collapse;*/
 }
 
 .horizontal-container {
+    padding: 0;
     width: 100%;
     display: table;
 }
@@ -54,16 +53,21 @@
     font-weight: bold;
     line-height: 200px;
 }
-.form-control {
-    border-radius: 5px;
-    padding: 5px;
-    width: 70%;
-}
 .form-label {
     padding-top: 10px;
     padding-bottom: 10px;
     font-weight: bold;
     vertical-align: middle;
 }
+.form-control {
+    border-radius: 5px;
+    padding: 5px;
+    width: 100%;
+}
+.framed-div {
+    border: 1px solid #000000;
+    border-collapse: collapse;
+}
+
 
 

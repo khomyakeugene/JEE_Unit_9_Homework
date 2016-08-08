@@ -10,12 +10,12 @@
 
 <div>
     <div class="horizontal-container">
-        <div class="horizontal-part-holder">
-            <div class="fifth form-label">
+        <div class="horizontal-part-holder framed-div">
+            <div class="fifth form-label framed-div">
                 <label for="courseName"><h3>Course</h3></label>
             </div>
 
-            <div class="three-fifths">
+            <div class="three-fifths framed-div">
                 <input type="text" class="form-control" id="courseName"
                        name="courseName" placeholder="Enter course name" required autofocus>
             </div>
