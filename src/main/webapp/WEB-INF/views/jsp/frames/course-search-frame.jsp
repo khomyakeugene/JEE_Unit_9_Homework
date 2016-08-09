@@ -18,7 +18,7 @@
 
         <div class="fifth">
             <button type="submit" class="button green" style="margin: 15px"
-                    name="search" value="Search" formnovalidate>
+                    name="search" value="search" formnovalidate>
                 Search
             </button>
         </div>

@@ -46,5 +46,12 @@ public class MainController extends CommonDataController {
         return modelAndView;
     }
 
+    @RequestMapping(value = "search", method = RequestMethod.GET)
+    public ModelAndView search() {
+
+        modelAndView.setViewName(COURSE_VIEW_NAME);
+
+        return modelAndView;
+    }
 
 }
