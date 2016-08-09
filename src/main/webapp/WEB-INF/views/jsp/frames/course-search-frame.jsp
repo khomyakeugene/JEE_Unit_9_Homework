@@ -17,7 +17,8 @@
         </div>
 
         <div class="fifth">
-            <button type="submit" class="button green" style="margin: 15px" name="action" value="updateTasks" formnovalidate>
+            <button type="submit" class="button green" style="margin: 15px"
+                    name="search" value="Search" formnovalidate>
                 Search
             </button>
         </div>

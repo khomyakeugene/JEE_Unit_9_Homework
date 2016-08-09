@@ -15,15 +15,15 @@
 .main-menu a {
     float: left;
     width: 210px;
-    background-color: #4fcc3b;
+    color: #e8f0de;
+    background-color: #87cb25;
     border-left: 2px solid #ffffff;
     text-decoration: none;
     text-align: center;
     padding: 10px;
     font-size: 18px;
-    color: #ffffff
 }
 .main-menu a:hover {
+    color: #b3ff50;
     background-color: #538018;
-    color: #b3ff50
 }

@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <head>
-    <link href="<c:url value="/resources/css/container.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/css/common.css"/>" rel="stylesheet">
     <link href="<c:url value="/resources/css/main-menu.css"/>" rel="stylesheet">
 </head>
 <div class="main-menu ordinary-container">
