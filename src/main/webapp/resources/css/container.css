@@ -26,18 +26,6 @@
     display: table-cell;
     width: 67%;
 }
-.fifth {
-    padding: 0;
-    float: left;
-    display: table-cell;
-    width: 20%;
-}
-.three-fifths {
-    padding: 0;
-    float: left;
-    display: table-cell;
-    width: 60%;
-}
 .image-to-centre img {
     display: block;
     margin-left: auto;
@@ -53,16 +41,32 @@
     font-weight: bold;
     line-height: 200px;
 }
-.form-label {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-weight: bold;
-    vertical-align: middle;
+.course-search-container {
+    padding: 0;
+    width: 90%;
+    display: table;
 }
-.form-control {
+.fifth {
+    padding: 0;
+    float: left;
+    display: table-cell;
+    width: 20%;
+}
+.three-fifths {
+    padding: 0;
+    float: left;
+    display: table-cell;
+    width: 59%;
+}
+.input-label {
+    margin: 0;
+    font-weight: bold;
+}
+.input-control {
+    margin: 15px;
     border-radius: 5px;
     padding: 5px;
-    width: 100%;
+    width: 95%;
 }
 .framed-div {
     border: 1px solid #000000;
