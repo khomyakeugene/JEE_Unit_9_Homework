@@ -81,8 +81,7 @@ public class CourseServiceImpl extends Service implements CourseService {
     public List<Course> findCourseByNameFragment(String nameFragment) {
         List<Course> result = new ArrayList<>();
 
-        String lowerCaseNameFragment = nameFragment.toLowerCase();
-
+        String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
         findAllCourses().stream().filter(c -> (c.getName().trim().toLowerCase().contains(lowerCaseNameFragment))).
                 forEach(result::add);
 
