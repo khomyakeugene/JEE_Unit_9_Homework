@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: Yevhen
@@ -5,6 +6,8 @@
   Time: 11:46
   To change this template use File | Settings | File Templates.
 --%>
+
+<form:form method="GET" action="/search">
 <div class="course-search-container">
     <div class="horizontal-part-holder">
         <div class="fifth">
@@ -24,3 +27,4 @@
         </div>
     </div>
 </div>
+</form:form>

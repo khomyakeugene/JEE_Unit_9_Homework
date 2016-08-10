@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -19,6 +20,7 @@ public class MainController extends CommonDataController {
 
     private static final String COURSES_VAR_NAME = "courses";
     private static final String COURSE_VAR_NAME = "course";
+    private static final String COURSE_NAME_VAR_NAME = "courseName";
 
     private CourseService courseService;
 
@@ -38,7 +40,7 @@ public class MainController extends CommonDataController {
     }
 
     @RequestMapping(value = "/course/{courseId}", method = RequestMethod.GET)
-    public ModelAndView employee(@PathVariable int courseId) {
+    public ModelAndView course(@PathVariable int courseId) {
 
         modelAndView.addObject(COURSE_VAR_NAME, courseService.findCourseById(courseId));
         modelAndView.setViewName(COURSE_VIEW_NAME);
@@ -46,11 +48,11 @@ public class MainController extends CommonDataController {
         return modelAndView;
     }
 
-    @RequestMapping(value = "search", method = RequestMethod.GET)
-    public ModelAndView search() {
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public ModelAndView search(@RequestParam(COURSE_NAME_VAR_NAME) String courseName) {
 
-
-        modelAndView.setViewName(COURSE_VIEW_NAME);
+        modelAndView.addObject(COURSES_VAR_NAME, courseService.findCourseByNameFragment(courseName));
+        modelAndView.setViewName(MAIN_PAGE_VIEW_NAME);
 
         return modelAndView;
     }
