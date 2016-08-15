@@ -34,6 +34,8 @@ public abstract class RestaurantModelDaoTest {
 
     private final static int CHICKEN_WITH_MUSHROOMS_ID = 4001;
     private final static String CHICKEN_WITH_MUSHROOMS_PHOTO_FILENAME = "images/courses/Chicken_With_Mushrooms.jpg";
+    private final static int GOULASH_WITH_POTATO_ID = 4002;
+    private final static String GOULASH_WITH_POTATO_PHOTO_FILENAME = "images/courses/Goulash_With_Potato.jpg";
     private final static int BEER_DOMS_ID = 10001;
     private final static String BEER_DOMS_PHOTO_FILENAME = "images/courses/Beer_Doms.jpg";
 
@@ -507,7 +509,6 @@ public abstract class RestaurantModelDaoTest {
 
     private boolean saveEmployeeImage(int employeeId, String imageFilename) {
         byte[] image = Util.readResourceFileToByteArray(imageFilename);
-
         if (image != null) {
             employeeDao.updEmployeePhoto(employeeId, image);
         }
@@ -531,7 +532,6 @@ public abstract class RestaurantModelDaoTest {
 
     private boolean saveCourseImage(int courseId, String imageFilename) {
         byte[] image = Util.readResourceFileToByteArray(imageFilename);
-
         if (image != null) {
             courseDao.updCoursePhoto(courseId, image);
         }
@@ -547,6 +547,8 @@ public abstract class RestaurantModelDaoTest {
     public void saveCourseImages() throws Exception {
         // Chicken with mushrooms
         AssertSaveCourseImage(CHICKEN_WITH_MUSHROOMS_ID, CHICKEN_WITH_MUSHROOMS_PHOTO_FILENAME);
+        // Goulash with potato
+        AssertSaveCourseImage(GOULASH_WITH_POTATO_ID, GOULASH_WITH_POTATO_PHOTO_FILENAME);
         // Beer "Doms"
         AssertSaveCourseImage(BEER_DOMS_ID, BEER_DOMS_PHOTO_FILENAME);
     }
