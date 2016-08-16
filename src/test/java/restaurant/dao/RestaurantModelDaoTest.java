@@ -15,8 +15,9 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Yevhen on 08.06.2016.
  */
-public abstract class RestaurantModelDaoTest extends RestaurantDaoAccess {
+public class RestaurantModelDaoTest extends RestaurantDaoAccess {
     private final static String DUPLICATE_KEY_VALUE_VIOLATES_MESSAGE = "duplicate key value violates";
+    private final static String APPLICATION_CONTEXT_NAME = "restaurant-hibernate-context.xml";
 
     private final static String EMBLEM_FILENAME = "images/Hamster.png";
     private final static String RESTAURANT_SCHEMA_FILENAME = "images/restaurant_schema.jpg";
@@ -65,7 +66,7 @@ public abstract class RestaurantModelDaoTest extends RestaurantDaoAccess {
 
     @BeforeClass
     public static void setUpClass() throws Exception {
-        initDataSource(null); // intentionally, to generate exception if use this code directly
+        initDataSource(APPLICATION_CONTEXT_NAME);
     }
 
     @AfterClass
