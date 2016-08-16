@@ -1,13 +1,10 @@
 package restaurant.dao;
 
-import com.company.restaurant.dao.*;
 import com.company.restaurant.model.*;
 import com.company.restaurant.service.impl.CommonDataServiceImpl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import restaurant.Util;
 
 import java.util.List;
@@ -18,7 +15,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Yevhen on 08.06.2016.
  */
-public abstract class RestaurantModelDaoTest {
+public abstract class RestaurantModelDaoTest extends RestaurantDaoAccess {
     private final static String DUPLICATE_KEY_VALUE_VIOLATES_MESSAGE = "duplicate key value violates";
 
     private final static String EMBLEM_FILENAME = "images/Hamster.png";
@@ -38,21 +35,6 @@ public abstract class RestaurantModelDaoTest {
     private final static String GOULASH_WITH_POTATO_PHOTO_FILENAME = "images/courses/Goulash_With_Potato.jpg";
     private final static int BEER_DOMS_ID = 10001;
     private final static String BEER_DOMS_PHOTO_FILENAME = "images/courses/Beer_Doms.jpg";
-
-    private static JobPositionDao jobPositionDao;
-    private static EmployeeDao employeeDao;
-    private static MenuDao menuDao;
-    private static TableDao tableDao;
-    private static CourseDao courseDao;
-    private static CourseCategoryDao courseCategoryDao;
-    private static CookedCourseDao cookedCourseDao;
-    private static StateDao stateDao;
-    private static StateGraphDao stateGraphDao;
-    private static OrderDao orderDao;
-    private static IngredientDao ingredientDao;
-    private static PortionDao portionDao;
-    private static WarehouseDao warehouseDao;
-    private static CommonDataDao commonDataDao;
 
     private static Employee employee() {
         return employeeDao.findAllEmployees().get(0);
@@ -80,25 +62,6 @@ public abstract class RestaurantModelDaoTest {
         return tableList.get(tableList.size() - 1).getTableId();
     }
 
-
-    protected static void initDataSource(String configLocation) throws Exception {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext(configLocation);
-
-        menuDao = applicationContext.getBean(MenuDao.class);
-        tableDao = applicationContext.getBean(TableDao.class);
-        employeeDao = applicationContext.getBean(EmployeeDao.class);
-        jobPositionDao = applicationContext.getBean(JobPositionDao.class);
-        courseDao = applicationContext.getBean(CourseDao.class);
-        courseCategoryDao = applicationContext.getBean(CourseCategoryDao.class);
-        cookedCourseDao = applicationContext.getBean(CookedCourseDao.class);
-        stateDao = applicationContext.getBean(StateDao.class);
-        stateGraphDao = applicationContext.getBean(StateGraphDao.class);
-        orderDao = applicationContext.getBean(OrderDao.class);
-        ingredientDao = applicationContext.getBean(IngredientDao.class);
-        portionDao = applicationContext.getBean(PortionDao.class);
-        warehouseDao = applicationContext.getBean(WarehouseDao.class);
-        commonDataDao = applicationContext.getBean(CommonDataDao.class);
-    }
 
     @BeforeClass
     public static void setUpClass() throws Exception {
