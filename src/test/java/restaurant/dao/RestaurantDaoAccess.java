@@ -1,6 +1,7 @@
 package restaurant.dao;
 
 import com.company.restaurant.dao.*;
+import org.junit.BeforeClass;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -8,6 +9,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by Yevhen on 16.08.2016.
  */
 public class RestaurantDaoAccess {
+    private final static String APPLICATION_CONTEXT_NAME = "restaurant-hibernate-context.xml";
+
     protected static JobPositionDao jobPositionDao;
     protected static EmployeeDao employeeDao;
     protected static MenuDao menuDao;
@@ -40,5 +43,10 @@ public class RestaurantDaoAccess {
         portionDao = applicationContext.getBean(PortionDao.class);
         warehouseDao = applicationContext.getBean(WarehouseDao.class);
         commonDataDao = applicationContext.getBean(CommonDataDao.class);
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+        initDataSource(APPLICATION_CONTEXT_NAME);
     }
 }
