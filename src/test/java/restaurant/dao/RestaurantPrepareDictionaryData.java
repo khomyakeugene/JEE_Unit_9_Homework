@@ -15,6 +15,9 @@ public class RestaurantPrepareDictionaryData extends RestaurantDaoAccess  {
     private final static String CHEF_PHOTO_FILENAME = "images/personnel/Chef.png";
     private final static int WAITER_EMPLOYEE_ID = 3;
     private final static String WAITER_PHOTO_FILENAME = "images/personnel/Waiter.png";
+
+    private final static int SHOPSKA_SALAD_ID = 2001;
+    private final static String SHOPSKA_SALAD_PHOTO_FILENAME = "images/courses/Shopska_salad.jpg";
     private final static int CHICKEN_WITH_MUSHROOMS_ID = 4001;
     private final static String CHICKEN_WITH_MUSHROOMS_PHOTO_FILENAME = "images/courses/Chicken_With_Mushrooms.jpg";
     private final static int GOULASH_WITH_POTATO_ID = 4002;
@@ -83,6 +86,8 @@ public class RestaurantPrepareDictionaryData extends RestaurantDaoAccess  {
 
     @Test
     public void saveCourseImages() throws Exception {
+        // Shopska salad
+        AssertSaveCourseImage(SHOPSKA_SALAD_ID, SHOPSKA_SALAD_PHOTO_FILENAME);
         // Chicken with mushrooms
         AssertSaveCourseImage(CHICKEN_WITH_MUSHROOMS_ID, CHICKEN_WITH_MUSHROOMS_PHOTO_FILENAME);
         // Goulash with potato
