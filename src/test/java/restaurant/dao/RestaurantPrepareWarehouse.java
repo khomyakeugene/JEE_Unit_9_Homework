@@ -30,7 +30,7 @@ public class RestaurantPrepareWarehouse extends RestaurantService {
                 if (amount == null) {
                     amount = 1.0f;
                 }
-                amount *= AMOUNT_MULTIPLIER;
+                amount = (float)(Math.round(amount *= AMOUNT_MULTIPLIER) + 1);
 
                 warehouseService.addIngredientToWarehouse(ci.getIngredient(), portion,
                         amount);
