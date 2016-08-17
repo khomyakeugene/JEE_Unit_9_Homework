@@ -59,6 +59,12 @@ public class HCourseDao extends HDaoEntity<Course> implements CourseDao {
 
     @Transactional
     @Override
+    public List<Course> findCourseByNameFragment(String nameFragment) {
+        return findObjectByNameFragment(nameFragment);
+    }
+
+    @Transactional
+    @Override
     public byte[] getCoursePhoto(int courseId) {
         byte[] result = null;
 

@@ -18,10 +18,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.lang.reflect.Type;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Yevhen on 09.06.2016.
@@ -316,6 +313,27 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
 
     protected T findObjectByName(String name) {
         return findObjectByAttributeValue(nameAttributeName, name);
+    }
+
+    protected List<T> findObjectByNameFragment(String nameFragment) {
+        List<T> result = new ArrayList<>();
+
+        String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
+        try {
+            Field nameField = getEntityClass().getDeclaredField(nameAttributeName);
+            nameField.setAccessible(true);
+            findAllObjects().stream().filter(c -> {
+                try {
+                    return (((String) nameField.get(c)).trim().toLowerCase().contains(lowerCaseNameFragment));
+                } catch (IllegalAccessException e) {
+                    return false;
+                }
+            }).forEach(result::add);
+        } catch (NoSuchFieldException e) {
+            // Do nothing
+        }
+
+        return result;
     }
 
     private List<T> hqlFindObjectsByTwoAttributeValues(String attributeName1,

@@ -16,11 +16,13 @@ public interface CourseDao {
 
     void delCourse(String name);
 
-    Course findCourseByName(String name);
-
     Course findCourseById(int courseId);
 
+    Course findCourseByName(String name);
+
     List<Course> findAllCourses();
+
+    List<Course> findCourseByNameFragment(String nameFragment);
 
     byte[] getCoursePhoto(int courseId);
 }
