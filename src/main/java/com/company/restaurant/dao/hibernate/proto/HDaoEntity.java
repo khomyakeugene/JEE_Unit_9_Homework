@@ -318,19 +318,28 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
     protected List<T> findObjectsByNameFragment(String nameFragment) {
         List<T> result = new ArrayList<>();
 
-        String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
-        try {
-            Field nameField = getEntityClass().getDeclaredField(nameAttributeName);
+        Field field = null;
+        Class entityClass = getEntityClass();
+        while((field == null) && (entityClass != null)) {
+            try {
+                field = entityClass.getDeclaredField(nameAttributeName);
+            } catch (NoSuchFieldException e) {
+                entityClass = entityClass.getSuperclass();
+            }
+        }
+        if (field != null) {
+            // Because for using in lambda-expression <nameField> should <final> or <effectively final>
+            Field nameField = field;
             nameField.setAccessible(true);
+
+            String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
             findAllObjects().stream().filter(c -> {
                 try {
-                    return (((String) nameField.get(c)).trim().toLowerCase().contains(lowerCaseNameFragment));
+                    return (((String)nameField.get(c)).trim().toLowerCase().contains(lowerCaseNameFragment));
                 } catch (IllegalAccessException e) {
                     return false;
                 }
             }).forEach(result::add);
-        } catch (NoSuchFieldException e) {
-            // Do nothing
         }
 
         return result;

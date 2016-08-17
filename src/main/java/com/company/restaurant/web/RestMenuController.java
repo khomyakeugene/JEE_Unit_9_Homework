@@ -34,7 +34,7 @@ public class RestMenuController {
 
     @RequestMapping(value="/menus/menu_name/{menuName}", method = RequestMethod.GET)
     @ResponseBody
-    public Menu getMenuByName(@PathVariable String menuName) {
-        return menuService.findMenuByName(menuName);
+    public List<Menu> getMenuByName(@PathVariable String menuName) {
+        return menuService.findMenusByNameFragment(menuName);
     }
 }
