@@ -3,10 +3,7 @@ package com.company.restaurant.web;
 import com.company.restaurant.model.Menu;
 import com.company.restaurant.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,9 +20,21 @@ public class RestMenuController {
         this.menuService = menuService;
     }
 
-    @RequestMapping(value="/menus", method = RequestMethod.POST)
+    @RequestMapping(value="/menus", method = RequestMethod.GET)
     @ResponseBody
-    List<Menu> getMenuList() {
-        return menuService.findAllMenus();
+    public List<String> getMenuList() {
+        return menuService.findAllMenuNames();
+    }
+
+    @RequestMapping(value="/menus/menu_id/{menuId}", method = RequestMethod.GET)
+    @ResponseBody
+    public Menu getMenuById(@PathVariable int menuId) {
+        return menuService.findMenuById(menuId);
+    }
+
+    @RequestMapping(value="/menus/menu_name/{menuName}", method = RequestMethod.GET)
+    @ResponseBody
+    public Menu getMenuByName(@PathVariable String menuName) {
+        return menuService.findMenuByName(menuName);
     }
 }

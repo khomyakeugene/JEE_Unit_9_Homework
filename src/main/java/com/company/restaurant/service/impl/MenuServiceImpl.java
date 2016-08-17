@@ -6,6 +6,7 @@ import com.company.restaurant.model.Menu;
 import com.company.restaurant.service.MenuService;
 import com.company.restaurant.service.impl.proto.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -47,6 +48,14 @@ public class MenuServiceImpl extends Service implements MenuService {
     @Override
     public List<Menu> findAllMenus() {
         return menuDao.findAllMenus();
+    }
+
+    @Override
+    public List<String> findAllMenuNames() {
+        List<String> result = new ArrayList<>();
+        findAllMenus().forEach(m -> result.add(m.getName()));
+
+        return result;
     }
 
     @Override
