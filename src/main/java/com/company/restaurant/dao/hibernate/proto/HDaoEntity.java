@@ -3,6 +3,7 @@ package com.company.restaurant.dao.hibernate.proto;
 import com.company.restaurant.dao.proto.SqlExpressions;
 import com.company.restaurant.model.proto.SimpleDic;
 import com.company.util.GenericHolder;
+import com.company.util.ObjectService;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.TransientObjectException;
@@ -316,23 +317,13 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
     }
 
     protected List<T> findObjectsByNameFragment(String nameFragment) {
-        List<T> result = new ArrayList<>();
+        List<T> result = null;
 
-        Field field = null;
-        Class entityClass = getEntityClass();
-        while((field == null) && (entityClass != null)) {
-            try {
-                field = entityClass.getDeclaredField(nameAttributeName);
-            } catch (NoSuchFieldException e) {
-                entityClass = entityClass.getSuperclass();
-            }
-        }
-        if (field != null) {
-            // Because for using in lambda-expression <nameField> should <final> or <effectively final>
-            Field nameField = field;
+        Field nameField = ObjectService.getDeclaredField(getEntityClass(), nameAttributeName);
+        if (nameField != null) {
             nameField.setAccessible(true);
-
             String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
+            result = new ArrayList<>();
             findAllObjects().stream().filter(c -> {
                 try {
                     return (((String)nameField.get(c)).trim().toLowerCase().contains(lowerCaseNameFragment));
