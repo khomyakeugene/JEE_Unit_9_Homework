@@ -1,9 +1,8 @@
 package restaurant.dao;
 
 import com.company.restaurant.model.*;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import restaurant.ObjectService;
 import restaurant.Util;
 
 import java.util.List;
