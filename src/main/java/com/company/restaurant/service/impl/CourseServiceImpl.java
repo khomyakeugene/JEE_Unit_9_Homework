@@ -79,12 +79,6 @@ public class CourseServiceImpl extends Service implements CourseService {
 
     @Override
     public List<Course> findCourseByNameFragment(String nameFragment) {
-        List<Course> result = new ArrayList<>();
-
-        String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
-        findAllCourses().stream().filter(c -> (c.getName().trim().toLowerCase().contains(lowerCaseNameFragment))).
-                forEach(result::add);
-
-        return result;
+        return courseDao.findCourseByNameFragment(nameFragment);
     }
 }
