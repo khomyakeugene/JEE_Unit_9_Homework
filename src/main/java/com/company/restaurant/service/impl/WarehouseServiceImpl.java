@@ -8,6 +8,7 @@ import com.company.restaurant.model.Portion;
 import com.company.restaurant.model.Warehouse;
 import com.company.restaurant.service.WarehouseService;
 import com.company.restaurant.service.impl.proto.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -85,5 +86,15 @@ public class WarehouseServiceImpl extends Service implements WarehouseService {
     @Override
     public Portion findPortionById(int portionId) {
         return portionDao.findPortionById(portionId);
+    }
+
+    @Override
+    @Transactional
+    public void clearWarehouse() {
+        for (Warehouse warehouse : findAllWarehouseIngredients()) {
+            takeIngredientFromWarehouse(warehouse.getIngredient(), warehouse.getPortion(),
+                    warehouse.getAmount());
+
+        }
     }
 }

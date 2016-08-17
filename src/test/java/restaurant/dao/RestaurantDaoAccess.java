@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * Created by Yevhen on 16.08.2016.
  */
 public class RestaurantDaoAccess {
-    private final static String APPLICATION_CONTEXT_NAME = "restaurant-hibernate-context.xml";
+    private final static String DAO_CONTEXT_NAME = "restaurant-hibernate-context.xml";
 
     protected static JobPositionDao jobPositionDao;
     protected static EmployeeDao employeeDao;
@@ -26,7 +26,7 @@ public class RestaurantDaoAccess {
     protected static WarehouseDao warehouseDao;
     protected static CommonDataDao commonDataDao;
 
-    protected static void initDataSource(String configLocation) throws Exception {
+    private static void initDataSource(String configLocation) throws Exception {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext(configLocation);
 
         menuDao = applicationContext.getBean(MenuDao.class);
@@ -45,8 +45,12 @@ public class RestaurantDaoAccess {
         commonDataDao = applicationContext.getBean(CommonDataDao.class);
     }
 
+    protected static void initDaoContext() throws Exception {
+        initDataSource(DAO_CONTEXT_NAME);
+    }
+
     @BeforeClass
     public static void setUpClass() throws Exception {
-        initDataSource(APPLICATION_CONTEXT_NAME);
+        initDaoContext();
     }
 }

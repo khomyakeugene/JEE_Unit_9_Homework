@@ -31,4 +31,6 @@ public interface WarehouseService {
     List<Portion> findAllPortions();
 
     Portion findPortionById(int portionId);
+
+    void clearWarehouse();
 }
