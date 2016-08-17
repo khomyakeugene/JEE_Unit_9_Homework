@@ -57,6 +57,12 @@ public class HMenuDao extends HDaoEntityCourseCollecting<Menu> implements MenuDa
 
     @Transactional
     @Override
+    public List<Menu> findMenusByNameFragment(String nameFragment) {
+        return findObjectsByNameFragment(nameFragment);
+    }
+
+    @Transactional
+    @Override
     public void addCourseToMenu(Menu menu, Course course) {
         menu.getCourses().add(course);
         update(menu);

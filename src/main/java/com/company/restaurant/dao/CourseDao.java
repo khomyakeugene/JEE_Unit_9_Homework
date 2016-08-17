@@ -22,7 +22,7 @@ public interface CourseDao {
 
     List<Course> findAllCourses();
 
-    List<Course> findCourseByNameFragment(String nameFragment);
+    List<Course> findCoursesByNameFragment(String nameFragment);
 
     byte[] getCoursePhoto(int courseId);
 }

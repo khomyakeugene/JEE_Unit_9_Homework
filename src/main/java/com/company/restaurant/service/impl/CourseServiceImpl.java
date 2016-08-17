@@ -7,7 +7,6 @@ import com.company.restaurant.model.CourseCategory;
 import com.company.restaurant.service.CourseService;
 import com.company.restaurant.service.impl.proto.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class CourseServiceImpl extends Service implements CourseService {
@@ -78,7 +77,7 @@ public class CourseServiceImpl extends Service implements CourseService {
     }
 
     @Override
-    public List<Course> findCourseByNameFragment(String nameFragment) {
-        return courseDao.findCourseByNameFragment(nameFragment);
+    public List<Course> findCoursesByNameFragment(String nameFragment) {
+        return courseDao.findCoursesByNameFragment(nameFragment);
     }
 }

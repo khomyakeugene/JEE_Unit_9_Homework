@@ -50,8 +50,7 @@ public class MainController extends CommonDataController {
 
     @RequestMapping(value = "/search", method = RequestMethod.GET)
     public ModelAndView search(@RequestParam(COURSE_NAME_VAR_NAME) String courseName) {
-
-        modelAndView.addObject(COURSES_VAR_NAME, courseService.findCourseByNameFragment(courseName));
+        modelAndView.addObject(COURSES_VAR_NAME, courseService.findCoursesByNameFragment(courseName));
         modelAndView.setViewName(MAIN_PAGE_VIEW_NAME);
 
         return modelAndView;

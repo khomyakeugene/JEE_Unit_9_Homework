@@ -22,6 +22,8 @@ public interface MenuService {
 
     List<Menu> findAllMenus();
 
+    List<Menu> findMenusByNameFragment(String nameFragment);
+
     List<String> findAllMenuNames();
 
     void addCourseToMenu(Menu menu, Course course);

@@ -31,5 +31,5 @@ public interface CourseService {
 
     List<Course> findAllCourses();
 
-    List<Course> findCourseByNameFragment(String nameFragment);
+    List<Course> findCoursesByNameFragment(String nameFragment);
 }

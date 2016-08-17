@@ -315,7 +315,7 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
         return findObjectByAttributeValue(nameAttributeName, name);
     }
 
-    protected List<T> findObjectByNameFragment(String nameFragment) {
+    protected List<T> findObjectsByNameFragment(String nameFragment) {
         List<T> result = new ArrayList<>();
 
         String lowerCaseNameFragment = nameFragment.trim().toLowerCase();

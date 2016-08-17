@@ -51,6 +51,11 @@ public class MenuServiceImpl extends Service implements MenuService {
     }
 
     @Override
+    public List<Menu> findMenusByNameFragment(String nameFragment) {
+        return menuDao.findMenusByNameFragment(nameFragment);
+    }
+
+    @Override
     public List<String> findAllMenuNames() {
         List<String> result = new ArrayList<>();
         findAllMenus().forEach(m -> result.add(m.getName()));

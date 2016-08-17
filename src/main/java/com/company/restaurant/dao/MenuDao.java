@@ -16,11 +16,13 @@ public interface MenuDao {
 
     void delMenu(Menu menu);
 
-    Menu findMenuByName(String name);
-
     Menu findMenuById(int menuId);
 
+    Menu findMenuByName(String name);
+
     List<Menu> findAllMenus();
+
+    List<Menu> findMenusByNameFragment(String nameFragment);
 
     void addCourseToMenu(Menu menu, Course course);
 
