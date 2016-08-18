@@ -6,6 +6,7 @@ import com.company.restaurant.model.*;
 import com.company.restaurant.service.EmployeeService;
 import com.company.restaurant.service.impl.proto.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -72,6 +73,14 @@ public class EmployeeServiceImpl extends Service implements EmployeeService {
     @Override
     public List<Employee> findAllEmployees() {
         return employeeDao.findAllEmployees();
+    }
+
+    @Override
+    public List<String> findAllEmployeeNames() {
+        List<String> result = new ArrayList<>();
+        findAllEmployees().forEach(e -> result.add(String.format("%s %s", e.getFirstName(), e.getSecondName())));
+
+        return result;
     }
 
     @Override

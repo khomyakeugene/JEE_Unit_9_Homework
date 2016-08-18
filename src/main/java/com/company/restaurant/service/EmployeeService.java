@@ -30,6 +30,8 @@ public interface EmployeeService {
 
     List<Employee> findAllEmployees();
 
+    List<String> findAllEmployeeNames();
+
     List<Employee> findEmployeeByFirstName(String firstName);
 
     List<Employee> findEmployeeBySecondName(String lastName);
