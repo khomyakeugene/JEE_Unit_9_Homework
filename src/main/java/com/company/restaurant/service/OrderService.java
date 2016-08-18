@@ -13,7 +13,7 @@ public interface OrderService {
 
     void delOrder(Order order);
 
-    public void delAllOrders();
+    void delAllOrders();
 
     Order findOrderById(int orderId);
 

@@ -248,7 +248,6 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
         delete(findObjectByName(name));
     }
 
-    @Transactional
     protected void deleteAllObjects() {
         findAllObjects().forEach(this::delete);
     }

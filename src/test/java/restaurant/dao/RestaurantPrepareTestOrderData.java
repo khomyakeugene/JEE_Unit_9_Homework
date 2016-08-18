@@ -28,12 +28,17 @@ public class RestaurantPrepareTestOrderData extends RestaurantService {
         for (int i = 0; i < courseCount; i++) {
             orderDao.addCourseToOrder(order, RestaurantDataGenerator.getRandomCourse());
         }
+
+        if (random.nextBoolean()) {
+            orderService.closeOrder(order);
+        }
     }
 
     @Test
-    @Transactional
     public void prepareOrders() {
         orderService.delAllOrders();
+
+        orderDao.delOrder(orderDao.findOrderById(17));
 
         for (int i = 0; i < ORDER_COUNT; i++) {
             prepareOrder(i + 1);
