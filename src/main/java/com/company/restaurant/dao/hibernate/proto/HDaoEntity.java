@@ -316,10 +316,10 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
         return findObjectByAttributeValue(nameAttributeName, name);
     }
 
-    protected List<T> findObjectsByNameFragment(String nameFragment) {
+    private List<T> findObjectsByAttributeFragment(String attributeName, String nameFragment) {
         List<T> result = null;
 
-        Field nameField = ObjectService.getDeclaredField(getEntityClass(), nameAttributeName);
+        Field nameField = ObjectService.getDeclaredField(getEntityClass(), attributeName);
         if (nameField != null) {
             nameField.setAccessible(true);
             String lowerCaseNameFragment = nameFragment.trim().toLowerCase();
@@ -334,6 +334,10 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
         }
 
         return result;
+    }
+
+    protected List<T> findObjectsByNameFragment(String nameFragment) {
+        return findObjectsByAttributeFragment(nameAttributeName, nameFragment);
     }
 
     private List<T> hqlFindObjectsByTwoAttributeValues(String attributeName1,

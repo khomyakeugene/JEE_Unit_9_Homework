@@ -1,7 +1,7 @@
 package com.company.restaurant.dao.hibernate;
 
 import com.company.restaurant.dao.CourseCategoryDao;
-import com.company.restaurant.dao.hibernate.proto.HDaoEntitySimpleDic;
+import com.company.restaurant.dao.hibernate.proto.HDaoEntity;
 import com.company.restaurant.model.CourseCategory;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +10,12 @@ import java.util.List;
 /**
  * Created by Yevhen on 10.06.2016.
  */
-public class HCourseCategoryDao extends HDaoEntitySimpleDic<CourseCategory> implements CourseCategoryDao {
+public class HCourseCategoryDao extends HDaoEntity<CourseCategory> implements CourseCategoryDao {
+    @Override
+    protected void initMetadata() {
+        this.orderByAttributeName = nameAttributeName;
+    }
+
     @Transactional
     @Override
     public CourseCategory addCourseCategory(String name) {

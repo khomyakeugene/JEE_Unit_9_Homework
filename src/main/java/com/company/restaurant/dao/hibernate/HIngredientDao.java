@@ -1,7 +1,7 @@
 package com.company.restaurant.dao.hibernate;
 
 import com.company.restaurant.dao.IngredientDao;
-import com.company.restaurant.dao.hibernate.proto.HDaoEntitySimpleDic;
+import com.company.restaurant.dao.hibernate.proto.HDaoEntity;
 import com.company.restaurant.model.Ingredient;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,7 +10,12 @@ import java.util.List;
 /**
  * Created by Yevhen on 15.06.2016.
  */
-public class HIngredientDao extends HDaoEntitySimpleDic<Ingredient> implements IngredientDao {
+public class HIngredientDao extends HDaoEntity<Ingredient> implements IngredientDao {
+    @Override
+    protected void initMetadata() {
+        this.orderByAttributeName = nameAttributeName;
+    }
+
     @Transactional
     @Override
     public Ingredient addIngredient(String name) {
