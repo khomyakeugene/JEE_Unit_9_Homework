@@ -34,7 +34,7 @@ public interface EmployeeService {
 
     List<Employee> findEmployeeByFirstName(String firstName);
 
-    List<Employee> findEmployeeBySecondName(String lastName);
+    List<Employee> findEmployeeBySecondName(String secondName);
 
     List<Employee> findEmployeeByFirstAndSecondName(String firstName, String secondName);
 

@@ -89,8 +89,8 @@ public class EmployeeServiceImpl extends Service implements EmployeeService {
     }
 
     @Override
-    public List<Employee> findEmployeeBySecondName(String lastName) {
-        return employeeDao.findEmployeeBySecondName(lastName);
+    public List<Employee> findEmployeeBySecondName(String secondName) {
+        return employeeDao.findEmployeeBySecondName(secondName);
     }
 
     @Override
