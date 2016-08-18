@@ -70,6 +70,11 @@ public class OrderServiceImpl extends Service implements OrderService {
     }
 
     @Override
+    public void delAllOrders() {
+        orderDao.delAllOrders();
+    }
+
+    @Override
     public Order findOrderById(int id) {
         return orderDao.findOrderById(id);
     }

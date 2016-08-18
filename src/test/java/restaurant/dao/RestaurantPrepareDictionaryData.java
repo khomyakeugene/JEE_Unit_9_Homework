@@ -5,7 +5,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import restaurant.Util;
 
-public class RestaurantPrepareDictionaryData extends RestaurantDaoAccess  {
+public class RestaurantPrepareDictionaryData extends RestaurantDao {
     private final static String EMBLEM_FILENAME = "images/Hamster.png";
     private final static String RESTAURANT_SCHEMA_FILENAME = "images/restaurant_schema.jpg";
     private final static String TRANSPORT_MAP_FILENAME = "images/transport_map.jpg";

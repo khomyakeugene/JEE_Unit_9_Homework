@@ -36,6 +36,12 @@ public class HOrderDao extends HDaoEntityCourseCollecting<Order> implements Orde
 
     @Transactional
     @Override
+    public void delAllOrders() {
+        deleteAllObjects();
+    }
+
+    @Transactional
+    @Override
     public Order findOrderById(int orderId) {
         return findObjectById(orderId);
     }

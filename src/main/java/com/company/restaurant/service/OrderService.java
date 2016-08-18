@@ -13,6 +13,8 @@ public interface OrderService {
 
     void delOrder(Order order);
 
+    public void delAllOrders();
+
     Order findOrderById(int orderId);
 
     Order closeOrder(Order order);

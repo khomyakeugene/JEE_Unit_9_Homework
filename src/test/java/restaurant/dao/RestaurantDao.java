@@ -8,7 +8,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Created by Yevhen on 16.08.2016.
  */
-public class RestaurantDaoAccess {
+public class RestaurantDao {
     private final static String DAO_CONTEXT_NAME = "restaurant-hibernate-context.xml";
 
     protected static JobPositionDao jobPositionDao;

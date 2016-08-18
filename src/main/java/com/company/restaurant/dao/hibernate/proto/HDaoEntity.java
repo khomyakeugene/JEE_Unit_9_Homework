@@ -10,6 +10,7 @@ import org.hibernate.TransientObjectException;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.persister.entity.AbstractEntityPersister;
 import org.hibernate.query.Query;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -245,6 +246,11 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
 
     protected void delete(String name) {
         delete(findObjectByName(name));
+    }
+
+    @Transactional
+    protected void deleteAllObjects() {
+        findAllObjects().forEach(this::delete);
     }
 
     private List<T> hqlFindAllObjects() {

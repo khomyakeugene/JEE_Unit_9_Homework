@@ -15,6 +15,8 @@ public interface OrderDao {
 
     void delOrder(Order order);
 
+    void delAllOrders();
+
     Order findOrderById(int orderId);
 
     List<Order> findOrderByNumber(String orderNumber);

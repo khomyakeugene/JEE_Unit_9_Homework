@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Yevhen on 08.06.2016.
  */
-public class RestaurantModelDaoTest extends RestaurantDaoAccess {
+public class RestaurantModelDaoTest extends RestaurantDao {
     private final static String DUPLICATE_KEY_VALUE_VIOLATES_MESSAGE = "duplicate key value violates";
 
     private static Employee employee() {
