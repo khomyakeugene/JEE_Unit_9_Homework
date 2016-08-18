@@ -1,7 +1,6 @@
 package com.company.restaurant.dao.hibernate.proto;
 
 import com.company.restaurant.dao.proto.SqlExpressions;
-import com.company.restaurant.model.proto.SimpleDic;
 import com.company.util.GenericHolder;
 import com.company.util.ObjectService;
 import org.hibernate.Session;
@@ -10,7 +9,6 @@ import org.hibernate.TransientObjectException;
 import org.hibernate.metadata.ClassMetadata;
 import org.hibernate.persister.entity.AbstractEntityPersister;
 import org.hibernate.query.Query;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -249,7 +247,19 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
     }
 
     protected void deleteAllObjects() {
-        findAllObjects().forEach(this::delete);
+        // Cannot understand why, but <delete> is working only with prior <findById>
+        // Simple delete(o) does not work!!!
+        Field idField = ObjectService.getDeclaredField(getEntityClass(), getEntityIdAttributeName());
+        if (idField != null) {
+            idField.setAccessible(true);
+            findAllObjects().forEach(o -> {
+                try {
+                    delete(idField.getInt(o));
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            });
+        }
     }
 
     private List<T> hqlFindAllObjects() {
@@ -337,7 +347,7 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
             result = new ArrayList<>();
             findAllObjects().stream().filter(c -> {
                 try {
-                    return (((String)nameField.get(c)).trim().toLowerCase().contains(lowerCaseNameFragment));
+                    return (((String) nameField.get(c)).trim().toLowerCase().contains(lowerCaseNameFragment));
                 } catch (IllegalAccessException e) {
                     return false;
                 }

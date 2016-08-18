@@ -38,8 +38,6 @@ public class RestaurantPrepareTestOrderData extends RestaurantService {
     public void prepareOrders() {
         orderService.delAllOrders();
 
-        orderDao.delOrder(orderDao.findOrderById(17));
-
         for (int i = 0; i < ORDER_COUNT; i++) {
             prepareOrder(i + 1);
         }
