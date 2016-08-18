@@ -185,12 +185,18 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
     }
 
     protected T save(String name) {
-        T result = newObject();
-        if (result instanceof SimpleDic) {
-            ((SimpleDic) result).setName(name);
-            result = save(result);
-        } else {
-            result = null;
+        T result = null;
+
+        Field nameField = ObjectService.getDeclaredField(getEntityClass(), nameAttributeName);
+        if (nameField != null) {
+            result = newObject();
+            nameField.setAccessible(true);
+            try {
+                nameField.set(result, name);
+                result = save(result);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
         }
 
         return result;
