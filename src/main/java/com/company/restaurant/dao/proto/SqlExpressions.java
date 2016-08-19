@@ -56,6 +56,10 @@ public class SqlExpressions {
         return fromExpression(entityName, null, orderByCondition);
     }
 
+    public static String fromExpression(String entityName) {
+        return fromExpression(entityName, null);
+    }
+
     public static String fromExpressionWithFieldCondition(String entityName,
                                                           String fieldName,
                                                           Object value,

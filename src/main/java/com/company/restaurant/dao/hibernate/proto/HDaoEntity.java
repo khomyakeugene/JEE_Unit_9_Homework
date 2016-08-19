@@ -246,20 +246,9 @@ public abstract class HDaoEntity<T> extends GenericHolder<T> {
         delete(findObjectByName(name));
     }
 
-    protected void deleteAllObjects() {
-        // Cannot understand why, but <delete> is working only with prior <findById>
-        // Simple delete(o) does not work!!!
-        Field idField = ObjectService.getDeclaredField(getEntityClass(), getEntityIdAttributeName());
-        if (idField != null) {
-            idField.setAccessible(true);
-            findAllObjects().forEach(o -> {
-                try {
-                    delete(idField.getInt(o));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
+    protected int deleteAllObjects() {
+        Query query = getCurrentSession().createQuery(SqlExpressions.deleteExpression(SqlExpressions.fromExpression(getEntityName())));
+        return query.executeUpdate();
     }
 
     private List<T> hqlFindAllObjects() {
